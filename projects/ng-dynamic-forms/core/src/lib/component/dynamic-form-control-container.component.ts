@@ -8,7 +8,8 @@ import {
     QueryList,
     SimpleChanges,
     Type,
-    ViewContainerRef
+    ViewContainerRef,
+    TemplateRef
 } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Subscription } from "rxjs";
@@ -59,6 +60,7 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
 
     contentTemplateList: QueryList<DynamicTemplateDirective> | undefined;
     inputTemplateList: QueryList<DynamicTemplateDirective> | undefined;
+    errorTemplate: TemplateRef<any> | undefined;
 
     blur: EventEmitter<DynamicFormControlEvent>;
     change: EventEmitter<DynamicFormControlEvent>;
@@ -196,6 +198,10 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
 
             if (this.templates) {
                 component.templates = this.templates;
+            }
+
+            if (this.errorTemplate) {
+                component.errorTemplate = this.errorTemplate;
             }
 
             this.componentSubscriptions.push(component.blur.subscribe(($event: any) => this.onBlur($event)));

@@ -1,4 +1,4 @@
-import { EventEmitter, QueryList } from "@angular/core";
+import { EventEmitter, QueryList, TemplateRef } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { DynamicFormControlCustomEvent } from "./dynamic-form-control-event";
 import { DynamicFormLayout } from "../service/dynamic-form-layout.service";
@@ -13,6 +13,7 @@ export interface DynamicFormControl {
     layout: DynamicFormControlLayout;
     model: DynamicFormControlModel;
     templates: QueryList<DynamicTemplateDirective> | DynamicTemplateDirective[] | undefined;
+    errorTemplate: TemplateRef<any> | undefined;
 
     blur: EventEmitter<any>;
     change: EventEmitter<any>;

@@ -20,6 +20,7 @@ import {
     DYNAMIC_ERROR_MESSAGES_MATCHER,
     DynamicErrorMessagesMatcher
 } from "./dynamic-form-validation-matchers";
+import { isFunction } from "util";
 
 @Injectable({
     providedIn: "root"
@@ -63,8 +64,13 @@ export class DynamicFormValidationService {
         return validatorFn as Validator;
     }
 
-    private getValidatorFns(validatorsConfig: DynamicValidatorsConfig,
+    private getValidatorFns(validatorsConfig: DynamicValidatorsConfig | ValidatorFn[],
                             validatorsToken: ValidatorsToken = this._NG_VALIDATORS): Validator[] {
+
+        // check for array of ValidatorFn[]. If so, return the result
+        if (Array.isArray(validatorsConfig) && validatorsConfig.every(item => isFunction(item))) {
+            return validatorsConfig as Validator[];
+        }
 
         let validatorFns: Validator[] = [];
 
@@ -96,15 +102,15 @@ export class DynamicFormValidationService {
         return this.getValidatorFn(validatorName, validatorArgs, this._NG_ASYNC_VALIDATORS) as AsyncValidatorFn;
     }
 
-    getValidators(validatorsConfig: DynamicValidatorsConfig): ValidatorFn[] {
+    getValidators(validatorsConfig: DynamicValidatorsConfig | ValidatorFn[]): ValidatorFn[] {
         return this.getValidatorFns(validatorsConfig) as ValidatorFn[];
     }
 
-    getAsyncValidators(asyncValidatorsConfig: DynamicValidatorsConfig): AsyncValidatorFn[] {
+    getAsyncValidators(asyncValidatorsConfig: DynamicValidatorsConfig | AsyncValidatorFn[]): AsyncValidatorFn[] {
         return this.getValidatorFns(asyncValidatorsConfig, this._NG_ASYNC_VALIDATORS) as AsyncValidatorFn[];
     }
 
-    updateValidators(validatorsConfig: DynamicValidatorsConfig | null, control: AbstractControl,
+    updateValidators(validatorsConfig: DynamicValidatorsConfig | ValidatorFn[] | null, control: AbstractControl,
                      model: DynamicFormControlModel): void {
 
         model.validators = validatorsConfig;
@@ -120,7 +126,7 @@ export class DynamicFormValidationService {
         control.updateValueAndValidity();
     }
 
-    updateAsyncValidators(asyncValidatorsConfig: DynamicValidatorsConfig | null, control: AbstractControl,
+    updateAsyncValidators(asyncValidatorsConfig: DynamicValidatorsConfig | AsyncValidatorFn[] | null, control: AbstractControl,
                           model: DynamicFormControlModel): void {
 
         model.asyncValidators = asyncValidatorsConfig;

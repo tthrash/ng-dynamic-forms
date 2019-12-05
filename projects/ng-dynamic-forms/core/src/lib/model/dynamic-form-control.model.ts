@@ -5,6 +5,7 @@ import { DynamicFormControlRelation } from "./misc/dynamic-form-control-relation
 import { DynamicFormHook, DynamicValidatorsConfig } from "./misc/dynamic-form-control-validation.model";
 import { serializable, serialize } from "../decorator/serializable.decorator";
 import { isBoolean, isObject, isString } from "../utils/core.utils";
+import { Validator } from "../service/dynamic-form-validators";
 
 export interface DynamicFormControlModelConfig {
 
@@ -19,7 +20,7 @@ export interface DynamicFormControlModelConfig {
     name?: string;
     relations?: DynamicFormControlRelation[];
     updateOn?: DynamicFormHook;
-    validators?: DynamicValidatorsConfig;
+    validators?: DynamicValidatorsConfig | Validator[];
 }
 
 export abstract class DynamicFormControlModel implements DynamicPathable {
@@ -37,7 +38,7 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
     parent: DynamicPathable | null = null;
     @serializable() relations: DynamicFormControlRelation[];
     @serializable() updateOn: DynamicFormHook | null;
-    @serializable() validators: DynamicValidatorsConfig | null;
+    @serializable() validators: DynamicValidatorsConfig | Validator[] | null;
 
     private readonly disabled$: BehaviorSubject<boolean>;
 

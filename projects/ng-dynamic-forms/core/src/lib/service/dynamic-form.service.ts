@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AbstractControl, FormArray, FormControl, FormGroup } from "@angular/forms";
+import { AbstractControl, FormArray, FormControl, FormGroup, ValidatorFn, AsyncValidatorFn } from "@angular/forms";
 import { AbstractControlOptions } from "@angular/forms";
 import { DynamicFormControlModel } from "../model/dynamic-form-control.model";
 import { DynamicFormValueControlModel } from "../model/dynamic-form-value-control.model";
@@ -59,8 +59,8 @@ export class DynamicFormService {
                 private validationService: DynamicFormValidationService) {
     }
 
-    private createAbstractControlOptions(validatorsConfig: DynamicValidatorsConfig | null = null,
-                                         asyncValidatorsConfig: DynamicValidatorsConfig | null = null,
+    private createAbstractControlOptions(validatorsConfig: DynamicValidatorsConfig | ValidatorFn[] | null = null,
+                                         asyncValidatorsConfig: DynamicValidatorsConfig | AsyncValidatorFn[] | null = null,
                                          updateOn: DynamicFormHook | null = null): AbstractControlOptions {
 
         return {

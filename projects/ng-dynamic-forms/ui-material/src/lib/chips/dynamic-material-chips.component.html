@@ -39,4 +39,14 @@
 
     </mat-chip-list>
 
+    <mat-error>
+        <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { control: control, errors: control?.errors }"></ng-container>
+        </ng-container>
+
+        <ng-template #defaultErrorMessagesTemplate>
+            <div *ngFor="let message of errorMessages">{{ message }}</div>
+        </ng-template>
+    </mat-error>
+
 </mat-form-field>

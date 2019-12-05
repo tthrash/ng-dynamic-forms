@@ -11,9 +11,15 @@
     <ng-container #componentViewContainer></ng-container>
 
     <ng-container *ngIf="!hasMatFormField">
+        <mat-error>
+            <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+                <ng-container *ngTemplateOutlet="errorTemplate; context: { control: control, errors: control?.errors }"></ng-container>
+            </ng-container>
 
-        <mat-error *ngFor="let message of errorMessages">{{ message }}</mat-error>
-
+            <ng-template #defaultErrorMessagesTemplate>
+                <div *ngFor="let message of errorMessages">{{ message }}</div>
+            </ng-template>
+        </mat-error>
     </ng-container>
 
     <ng-container *ngTemplateOutlet="endTemplate?.templateRef; context: model"></ng-container>

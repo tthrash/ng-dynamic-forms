@@ -7,7 +7,9 @@ import {
     Input,
     Output,
     QueryList,
-    ViewChildren
+    ViewChildren,
+    AfterContentInit,
+    TemplateRef
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import {
@@ -16,7 +18,8 @@ import {
     DynamicFormControlEvent,
     DynamicFormLayout,
     DynamicFormModel,
-    DynamicTemplateDirective
+    DynamicTemplateDirective,
+    DynamicFormsErrorTemplateDirective
 } from "@ng-dynamic-forms/core";
 import { DynamicMaterialFormControlContainerComponent } from "./dynamic-material-form-control-container.component";
 
@@ -39,7 +42,11 @@ export class DynamicMaterialFormComponent extends DynamicFormComponent {
 
     @ContentChildren(DynamicTemplateDirective) templates: QueryList<DynamicTemplateDirective>;
 
+    @ContentChildren(DynamicFormsErrorTemplateDirective, { descendants: true }) errorTemplates: QueryList<DynamicFormsErrorTemplateDirective>;
+
     @ViewChildren(DynamicMaterialFormControlContainerComponent) components: QueryList<DynamicMaterialFormControlContainerComponent>;
+
+    errorTemplatesMap: Map<string, TemplateRef<any>> = new Map<string, TemplateRef<any>>();
 
     constructor(protected changeDetectorRef: ChangeDetectorRef,
                 protected componentService: DynamicFormComponentService) {

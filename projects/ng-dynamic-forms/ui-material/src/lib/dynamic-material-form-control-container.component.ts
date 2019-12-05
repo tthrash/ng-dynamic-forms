@@ -11,7 +11,8 @@ import {
     QueryList,
     Type,
     ViewChild,
-    ViewContainerRef
+    ViewContainerRef,
+    TemplateRef
 } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import {
@@ -67,6 +68,7 @@ export class DynamicMaterialFormControlContainerComponent extends DynamicFormCon
     @Input() group: FormGroup;
     @Input() hostClass: string[];
     @Input("templates") inputTemplateList: QueryList<DynamicTemplateDirective>;
+    @Input() errorTemplate: TemplateRef<any> | undefined = undefined;
     @Input() layout: DynamicFormLayout;
     @Input() model: DynamicFormControlModel;
 

@@ -36,6 +36,14 @@
 
     <mat-hint *ngIf="model.hint !== null" align="start" [innerHTML]="model.hint"></mat-hint>
 
-    <mat-error *ngFor="let message of errorMessages">{{ message }}</mat-error>
+    <mat-error>
+        <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { control: control, errors: control?.errors }"></ng-container>
+        </ng-container>
+
+        <ng-template #defaultErrorMessagesTemplate>
+            <div *ngFor="let message of errorMessages">{{ message }}</div>
+        </ng-template>
+    </mat-error>
 
 </mat-form-field>
