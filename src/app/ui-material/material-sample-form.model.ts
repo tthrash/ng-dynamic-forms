@@ -11,6 +11,7 @@ import {
     MATCH_REQUIRED
 } from "@ng-dynamic-forms/core";
 import { BehaviorSubject } from "rxjs";
+import { Validators } from "@angular/forms";
 
 export const STATES_AUTOCOMPLETE_LIST = [
     "Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -100,12 +101,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         id: "firstName",
         maxLength: 25,
         placeholder: "First Name",
-        validators: {
-            required: null
-        },
-        errorMessages: {
-            required: "Field is required"
-        }
+        validators: [Validators.required]
     }),
 
     new DynamicInputModel({

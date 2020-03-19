@@ -12,7 +12,19 @@
                                    (blur)="onBlur($event)"
                                    (change)="onChange($event)"
                                    (focus)="onFocus($event)"
-                                   (matEvent)="onMatEvent($event)"></dynamic-material-form>
+                                   (matEvent)="onMatEvent($event)">
+                <ng-template let-errors="errors" let-control="control" dynamicFormsErrorKey="firstName">
+                    <span>First Name is required.</span>
+                </ng-template>
+
+                <!-- You could also have an error messages component that handles all of your error messages -->
+                <!-- <ng-template let-element ngFor [ngForOf]="formModel">
+                    <ng-template let-errors="errors" let-control="control" [dynamicFormsErrorKey]="element.id">
+                        <error-messages [errors]="errors" [control]="control"></error-messages>
+                    </ng-template>
+                </ng-template> -->
+
+            </dynamic-material-form>
 
         </form>
 
