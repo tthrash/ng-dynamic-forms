@@ -29,7 +29,7 @@ import { DynamicFormsErrorTemplateDirective } from "./directive/dynamic-error-te
 export class DynamicFormsCoreModule {
 
     /*@deprecated*/
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<DynamicFormsCoreModule> {
 
         return {
             ngModule: DynamicFormsCoreModule,
