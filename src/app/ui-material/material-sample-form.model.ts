@@ -9,7 +9,7 @@ import {
     DynamicTextAreaModel,
     MATCH_DISABLED,
     MATCH_REQUIRED
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { BehaviorSubject } from "rxjs";
 import { Validators } from "@angular/forms";
 

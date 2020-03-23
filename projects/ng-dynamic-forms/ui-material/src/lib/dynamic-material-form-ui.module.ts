@@ -12,7 +12,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSliderModule } from "@angular/material/slider";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialFormControlContainerComponent } from "./dynamic-material-form-control-container.component";
 import { DynamicMaterialFormComponent } from "./dynamic-material-form.component";
 import { DynamicMaterialCheckboxComponent } from "./checkbox/dynamic-material-checkbox.component";

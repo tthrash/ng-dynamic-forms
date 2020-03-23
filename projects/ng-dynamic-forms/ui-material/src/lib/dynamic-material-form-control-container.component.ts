@@ -40,7 +40,7 @@ import {
     DynamicInputModel,
     DynamicTemplateDirective,
     DynamicFormValueControlModel
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicMaterialDatePickerComponent } from "./datepicker/dynamic-material-datepicker.component";
 import { DynamicMaterialInputComponent } from "./input/dynamic-material-input.component";
 import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-textarea.component";

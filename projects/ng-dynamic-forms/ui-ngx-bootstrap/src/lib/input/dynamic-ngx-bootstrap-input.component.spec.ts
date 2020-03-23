@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormGroup, FormControl } from "@angular/forms";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms2/core";
 import { DynamicNGxBootstrapInputComponent } from "./dynamic-ngx-bootstrap-input.component";
 
 describe("DynamicNGxBootstrapInputComponent test suite", () => {

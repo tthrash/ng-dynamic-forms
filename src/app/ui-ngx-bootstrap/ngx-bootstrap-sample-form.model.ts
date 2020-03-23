@@ -12,7 +12,7 @@ import {
     MATCH_DISABLED,
     MATCH_HIDDEN,
     MATCH_REQUIRED
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { of } from "rxjs/observable/of";
 
 export const NGX_BOOTSTRAP_SAMPLE_FORM_MODEL = [

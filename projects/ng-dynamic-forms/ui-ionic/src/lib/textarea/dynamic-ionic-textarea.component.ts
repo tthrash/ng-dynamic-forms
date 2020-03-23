@@ -7,7 +7,7 @@ import {
     DynamicFormValidationService,
     DynamicFormControlComponent,
     DynamicTextAreaModel, DynamicFormControlLayout
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 
 @Component({
     selector: "dynamic-ionic-textarea",

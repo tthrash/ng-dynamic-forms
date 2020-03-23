@@ -8,7 +8,7 @@ import {
     DynamicFormValidationService,
     DynamicSelectModel,
     DynamicTemplateDirective
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { PRIME_NG_TEMPLATE_DIRECTIVES } from "../dynamic-primeng-form.const";
 import { DynamicPrimeNGFormControlWithTemplateComponent } from "../dynamic-primeng-form-control-with-template.component";
 

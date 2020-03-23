@@ -8,7 +8,7 @@ import {
     DynamicFormLayoutService,
     DynamicFormValidationService,
     DynamicTextAreaModel
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicMaterialFormInputControlComponent } from "../dynamic-material-form-input-control.component";
 
 @Component({

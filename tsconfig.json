@@ -19,11 +19,17 @@
       "dom"
     ],
     "paths": {
-      "@ng-dynamic-forms/core": [
+      "@ng-dynamic-forms2/core": [
         "dist/ng-dynamic-forms/core"
       ],
-      "@ng-dynamic-forms/core/*": [
+      "@ng-dynamic-forms2/core/*": [
         "dist/ng-dynamic-forms/core/*"
+      ],
+      "@ng-dynamic-forms2/ui-material": [
+        "dist/ng-dynamic-forms/ui-material"
+      ],
+      "@ng-dynamic-forms2/ui-material/*": [
+        "dist/ng-dynamic-forms/ui-material/*"
       ],
       "@ng-dynamic-forms/ui-basic": [
         "dist/ng-dynamic-forms/ui-basic"
@@ -54,12 +60,6 @@
       ],
       "@ng-dynamic-forms/ui-kendo/*": [
         "dist/ng-dynamic-forms/ui-kendo/*"
-      ],
-      "@ng-dynamic-forms/ui-material": [
-        "dist/ng-dynamic-forms/ui-material"
-      ],
-      "@ng-dynamic-forms/ui-material/*": [
-        "dist/ng-dynamic-forms/ui-material/*"
       ],
       "@ng-dynamic-forms/ui-ng-bootstrap": [
         "dist/ng-dynamic-forms/ui-ng-bootstrap"

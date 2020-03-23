@@ -10,7 +10,7 @@ import {
     DynamicSwitchModel,
     DynamicTextAreaModel,
     DynamicTimePickerModel
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 
 export const KENDO_SAMPLE_FORM_MODEL = [
 

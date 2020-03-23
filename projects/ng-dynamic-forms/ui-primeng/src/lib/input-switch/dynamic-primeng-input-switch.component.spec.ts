@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
 import { InputSwitch, InputSwitchModule } from "primeng/primeng";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicSwitchModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicSwitchModel } from "@ng-dynamic-forms2/core";
 import { DynamicPrimeNGInputSwitchComponent } from "./dynamic-primeng-input-switch.component";
 
 describe("DynamicPrimeNGInputSwitchComponent test suite", () => {
