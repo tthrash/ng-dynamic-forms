@@ -307,10 +307,21 @@ export class DynamicFormService {
             formComponent.detectChanges();
 
         } else {
+            const forms = this.componentService.getForms();
 
-            for (const form of this.componentService.getForms()) {
-                form.markForCheck();
-                form.detectChanges();
+            if (forms.length > 0)
+            {
+                for (const form of forms) {
+                    form.markForCheck();
+                    form.detectChanges();
+                }
+            }
+            else
+            {
+                for (const ctrl of this.componentService.getFormControls()) {
+                    ctrl.changeDetectorRef.markForCheck();
+                    ctrl.changeDetectorRef.detectChanges();
+                }
             }
         }
     }

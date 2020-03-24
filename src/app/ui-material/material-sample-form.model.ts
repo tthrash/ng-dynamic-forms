@@ -60,28 +60,28 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "roomSize",
                 placeholder: "Room Size",
                 hint: "Choose a room type",
-                options: [
-                    {
-                        label: "Single Room",
-                        value: "single-room"
-                    },
-                    {
-                        label: "Double Room",
-                        value: "double-room"
-                    },
-                    {
-                        label: "Business Suite",
-                        value: "business-suite"
-                    },
-                    {
-                        label: "Presidential Suite",
-                        value: "presidential-suite"
-                    },
-                    {
-                        label: "Storeroom",
-                        value: "storeroom"
-                    }
-                ]
+                // options: [
+                //     {
+                //         label: "Single Room",
+                //         value: "single-room"
+                //     },
+                //     {
+                //         label: "Double Room",
+                //         value: "double-room"
+                //     },
+                //     {
+                //         label: "Business Suite",
+                //         value: "business-suite"
+                //     },
+                //     {
+                //         label: "Presidential Suite",
+                //         value: "presidential-suite"
+                //     },
+                //     {
+                //         label: "Storeroom",
+                //         value: "storeroom"
+                //     }
+                // ]
             }),
 
             new DynamicInputModel({
