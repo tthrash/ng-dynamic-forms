@@ -45,6 +45,7 @@ export class DynamicMaterialSelectComponent extends DynamicFormControlComponent 
         if (this.model && this.model.options$) {
             this.model.options$ = this.model.options$.pipe(tap(x => {
                 this.cdr.markForCheck();
+                this.cdr.detectChanges();
             }));
         }
     }
