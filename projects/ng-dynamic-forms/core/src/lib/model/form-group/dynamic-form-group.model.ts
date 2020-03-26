@@ -53,4 +53,18 @@ export class DynamicFormGroupModel extends DynamicFormControlModel {
     size(): number {
         return this.group.length;
     }
+
+    clone(withState: boolean = false): DynamicFormGroupModel {
+        const config = {...this.config};
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicFormGroupModel(this.config, this.layout);
+    }
 }

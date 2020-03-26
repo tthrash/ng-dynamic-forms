@@ -31,4 +31,19 @@ export class DynamicSliderModel extends DynamicFormValueControlModel<number> {
         this.step = isNumber(config.step) ? config.step : 1;
         this.vertical = isBoolean(config.vertical) ? config.vertical : false;
     }
+
+    clone(withState: boolean = false): DynamicSliderModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicSliderModel(this.config, this.layout);
+    }
 }

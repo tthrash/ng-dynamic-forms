@@ -26,6 +26,8 @@ export class MaterialSampleFormComponent implements OnInit {
         const x = (this.formModel.find(f => f.id === "room") as DynamicFormGroupModel).group.find(x => x.id === "roomSize") as DynamicSelectModel<string>;
         x.options = this.testSubject.asObservable();
 
+        this.formModel.push(x.clone(true));
+
         this.formGroup = this.formService.createFormGroup(this.formModel);
 
         setTimeout(() => {

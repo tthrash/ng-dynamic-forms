@@ -61,6 +61,8 @@ export abstract class DynamicOptionControlModel<T> extends DynamicFormValueContr
 
     set options(options: any) {
 
+       (this.config as DynamicOptionControlModelConfig<T>).options = options;
+
         if (Array.isArray(options)) {
 
             this._options = (options as DynamicFormOptionConfig<T>[]).map(optionConfig => new DynamicFormOption<T>(optionConfig));

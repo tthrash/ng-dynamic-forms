@@ -25,4 +25,19 @@ export class DynamicTimePickerModel extends DynamicDateControlModel {
         this.meridian = isBoolean(config.meridian) ? config.meridian : false;
         this.showSeconds = isBoolean(config.showSeconds) ? config.showSeconds : false;
     }
+
+    clone(withState: boolean = false): DynamicTimePickerModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicTimePickerModel(this.config, this.layout);
+    }
 }

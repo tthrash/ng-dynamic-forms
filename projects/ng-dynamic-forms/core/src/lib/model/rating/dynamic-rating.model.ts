@@ -22,4 +22,19 @@ export class DynamicRatingModel extends DynamicFormValueControlModel<number> {
 
         this.max = isNumber(config.max) ? config.max : 10;
     }
+
+    clone(withState: boolean = false): DynamicRatingModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicRatingModel(this.config, this.layout);
+    }
 }

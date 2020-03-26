@@ -24,7 +24,8 @@ export interface DynamicFormControlModelConfig {
 }
 
 export abstract class DynamicFormControlModel implements DynamicPathable {
-
+    @serializable() config: DynamicFormControlModelConfig;
+    @serializable() layout: DynamicFormControlLayout | null;
     @serializable() asyncValidators: DynamicValidatorsConfig | null;
     @serializable("disabled") _disabled: boolean;
     @serializable() errorMessages: DynamicValidatorsConfig | null;
@@ -33,7 +34,6 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
     @serializable() label: string | null;
     @serializable() labelTooltip: string | null;
     @serializable() controlTooltip: string | null;
-    @serializable() layout: DynamicFormControlLayout | null;
     @serializable() name: string;
     parent: DynamicPathable | null = null;
     @serializable() relations: DynamicFormControlRelation[];
@@ -47,7 +47,8 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
     abstract readonly type: string;
 
     protected constructor(config: DynamicFormControlModelConfig, layout: DynamicFormControlLayout | null = null) {
-
+        this.config = config;
+        this.layout = layout;
         this.asyncValidators = config.asyncValidators || null;
         this.errorMessages = config.errorMessages || null;
         this.hidden = isBoolean(config.hidden) ? config.hidden : false;
@@ -55,7 +56,6 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
         this.label = config.label || null;
         this.labelTooltip = config.labelTooltip || null;
         this.controlTooltip = config.controlTooltip || null;
-        this.layout = layout;
         this.name = config.name || config.id;
         this.relations = Array.isArray(config.relations) ? config.relations : [];
         this.updateOn = isString(config.updateOn) ? config.updateOn : null;
@@ -77,6 +77,12 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
     get hasErrorMessages(): boolean {
         return isObject(this.errorMessages);
     }
+
+    /**
+     * Will clone the DynamicFormControlModel instance by creating a new instance with the original configs instances.
+     * @param withState boolean whether to clone with this DynamicFormControlModel instance state. Default is false.
+     */
+    abstract clone(withState?: boolean): DynamicFormControlModel;
 
     toJSON() {
         return serialize(this);

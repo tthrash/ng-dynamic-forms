@@ -25,4 +25,19 @@ export class DynamicRadioGroupModel<T> extends DynamicOptionControlModel<T> {
     select(index: number): void {
         this.value = this.get(index).value;
     }
+
+    clone(withState: boolean = false): DynamicRadioGroupModel<T> {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicRadioGroupModel<T>(this.config, this.layout);
+    }
 }

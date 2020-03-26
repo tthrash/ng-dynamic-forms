@@ -30,4 +30,19 @@ export class DynamicCheckboxGroupModel extends DynamicFormGroupModel {
     uncheckAll(): void {
         this.group.forEach(model => model.checked = false);
     }
+
+    clone(withState: boolean = false): DynamicCheckboxGroupModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicCheckboxGroupModel(this.config, this.layout);
+    }
 }

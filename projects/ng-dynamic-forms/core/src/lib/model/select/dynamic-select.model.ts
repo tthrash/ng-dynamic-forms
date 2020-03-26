@@ -42,4 +42,21 @@ export class DynamicSelectModel<T> extends DynamicOptionControlModel<T> {
     select(...indices: number[]): void {
         this.value = this.multiple ? indices.map(index => this.get(index).value) : this.get(indices[0]).value;
     }
+
+    clone(withState: boolean = false): DynamicSelectModel<T> {
+        const config = {...this.config} as DynamicSelectModelConfig<T>;
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+
+            config.options = (this.config as DynamicSelectModelConfig<T>).options;
+        }
+
+        return new DynamicSelectModel<T>(config, this.layout);
+    }
 }
