@@ -34,13 +34,15 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
                 id: "arrivalDate",
                 inline: false,
-                placeholder: "Date of Arrival"
+                placeholder: "Date of Arrival",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
             }),
 
             new DynamicDatePickerModel({
                 id: "departureDate",
                 inline: false,
-                placeholder: "Date of Departure"
+                placeholder: "Date of Departure",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
             })
         ],
         validators: {
@@ -60,6 +62,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "roomSize",
                 placeholder: "Room Size",
                 hint: "Choose a room type",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
                 // options: [
                 //     {
                 //         label: "Single Room",
@@ -89,6 +92,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "roomQuantity",
                 inputType: "number",
                 placeholder: "Room Quantity",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
                 hint: "Maximum: 5",
                 max: 5,
                 min: 0
@@ -101,6 +105,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         id: "firstName",
         maxLength: 25,
         placeholder: "First Name",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         validators: [Validators.required]
     }),
 
@@ -109,6 +114,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         id: "lastName",
         maxLength: 50,
         placeholder: "Last Name",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         validators: {
             required: null
         },
@@ -124,6 +130,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "email",
         placeholder: "E-Mail",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         validators: {
             email: null
         },
@@ -138,6 +145,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         inputType: "tel",
         placeholder: "Phone Number",
         hint: "Add your country code first",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         prefix: "+",
         validators: {
             required: null
@@ -222,6 +230,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
     new DynamicRadioGroupModel<string>({
 
         id: "payment",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         options: [
             {
                 label: "Credit Card",
@@ -247,6 +256,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "note",
         rows: 3,
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         placeholder: "Personal Note",
         relations: [
             {
@@ -264,6 +274,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "tags",
         placeholder: "Tags",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         multiple: true,
         value: ["hotel", "booking"]
     }),
@@ -280,6 +291,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
     new DynamicSwitchModel({
 
         id: "newsletter",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         offLabel: "Subscribe to newsletter",
         onLabel: "Subscribe to newsletter",
         value: true
@@ -288,6 +300,7 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
     new DynamicCheckboxModel({
 
         id: "confirm",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
         label: "I confirm the information given above"
     })
 ];

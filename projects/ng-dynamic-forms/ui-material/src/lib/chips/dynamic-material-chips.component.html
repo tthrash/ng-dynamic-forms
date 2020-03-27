@@ -22,6 +22,7 @@
         </mat-chip>
 
         <input matInput
+               [matTooltip]="model.labelTooltip"
                [matAutocomplete]="matAutocomplete"
                [matChipInputAddOnBlur]="model.getAdditional('matChipInputAddOnBlur', true)"
                [matChipInputFor]="matChipList"
@@ -45,7 +46,7 @@
 
     <mat-error>
         <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
-            <ng-container *ngTemplateOutlet="errorTemplate; context: { control: control, errors: control?.errors }"></ng-container>
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { model: model, control: control, errors: control?.errors }"></ng-container>
         </ng-container>
 
         <ng-template #defaultErrorMessagesTemplate>

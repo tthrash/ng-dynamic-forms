@@ -2,6 +2,7 @@
 
     <mat-slider #matSlider
                 [color]="model.getAdditional('color', 'accent')"
+                [matTooltip]="model.labelTooltip"
                 [formControlName]="model.id"
                 [id]="id"
                 [invert]="model.getAdditional('invert', false)"

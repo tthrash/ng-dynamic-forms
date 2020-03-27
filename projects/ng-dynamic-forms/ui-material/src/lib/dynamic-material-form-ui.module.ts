@@ -11,6 +11,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSliderModule } from "@angular/material/slider";
+import { MatTooltipModule } from "@angular/material/tooltip";
 import { TextMaskModule } from "angular2-text-mask";
 import { DynamicFormsCoreModule } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialFormControlContainerComponent } from "./dynamic-material-form-control-container.component";
@@ -27,6 +28,7 @@ import { DynamicMaterialSlideToggleComponent } from "./slide-toggle/dynamic-mate
 import { DynamicMaterialSliderComponent } from "./slider/dynamic-material-slider.component";
 import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-textarea.component";
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -41,6 +43,7 @@ import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-te
         MatSelectModule,
         MatSliderModule,
         MatSlideToggleModule,
+        MatTooltipModule,
         TextMaskModule,
         DynamicFormsCoreModule
     ],

@@ -20,6 +20,7 @@
            [attr.min]="model.min"
            [attr.multiple]="model.multiple"
            [attr.step]="model.step"
+           [matTooltip]="model.labelTooltip"
            [autocomplete]="model.autoComplete"
            [autofocus]="model.autoFocus"
            [errorStateMatcher]="model.getAdditional('errorStateMatcher', errorStateMatcher)"
@@ -49,7 +50,7 @@
 
     <mat-error>
         <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
-            <ng-container *ngTemplateOutlet="errorTemplate; context: { control: control, errors: control?.errors }"></ng-container>
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { model: model, control: control, errors: control?.errors }"></ng-container>
         </ng-container>
 
         <ng-template #defaultErrorMessagesTemplate>

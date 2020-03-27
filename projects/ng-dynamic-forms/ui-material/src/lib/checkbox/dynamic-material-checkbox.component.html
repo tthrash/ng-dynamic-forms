@@ -10,6 +10,7 @@
                   [labelPosition]="model.labelPosition || 'after'"
                   [name]="model.name"
                   [tabIndex]="model.tabIndex"
+                  [matTooltip]="model.labelTooltip"
                   [ngClass]="[getClass('element', 'control'), getClass('grid', 'control')]"
                   (blur)="onBlur($event)"
                   (change)="onChange($event)"

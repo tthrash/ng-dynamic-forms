@@ -2,6 +2,7 @@
 
     <mat-radio-group #matRadioGroup
                      [formControlName]="model.id"
+                     [matTooltip]="model.labelTooltip"
                      [id]="id"
                      [labelPosition]="model.getAdditional('labelPosition', 'after')"
                      [name]="model.name"
