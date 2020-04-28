@@ -27,6 +27,7 @@ import { DynamicMaterialSelectComponent } from "./select/dynamic-material-select
 import { DynamicMaterialSlideToggleComponent } from "./slide-toggle/dynamic-material-slide-toggle.component";
 import { DynamicMaterialSliderComponent } from "./slider/dynamic-material-slider.component";
 import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-textarea.component";
+import { NgDynamicTooltipModule } from "./tooltip/tooltip.module";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-te
         CommonModule,
         ReactiveFormsModule,
         MatAutocompleteModule,
+        NgDynamicTooltipModule,
         MatCheckboxModule,
         MatChipsModule,
         MatDatepickerModule,

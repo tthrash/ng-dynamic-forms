@@ -11,6 +11,7 @@
                   [name]="model.name"
                   [tabIndex]="model.tabIndex"
                   [matTooltip]="model.labelTooltip"
+                  [ngDynamicTooltip]="model.ngDynamicTooltip"
                   [ngClass]="[getClass('element', 'control'), getClass('grid', 'control')]"
                   (blur)="onBlur($event)"
                   (change)="onChange($event)"

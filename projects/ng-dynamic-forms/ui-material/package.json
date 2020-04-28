@@ -1,6 +1,6 @@
 {
   "name": "@ng-dynamic-forms2/ui-material",
-  "version": "10.1.10",
+  "version": "10.2.0",
   "description": "Material UI package for NG Dynamic Forms",
   "keywords": [
     "angular",
@@ -28,14 +28,14 @@
   "module": "./fesm5/ui-material.js",
   "typings": "./ui-material.d.ts",
   "peerDependencies": {
-    "@angular/common": "~9.0.7",
-    "@angular/core": "~9.0.7",
-    "@angular/forms": "~9.0.7",
-    "@angular/material": "^9.1.3",
-    "@ng-dynamic-forms2/core": "^10.1.10",
+    "@angular/common": "~9.1.3",
+    "@angular/core": "~9.1.3",
+    "@angular/forms": "~9.1.3",
+    "@angular/material": "^9.2.1",
+    "@ng-dynamic-forms2/core": "^10.1.12",
     "angular2-text-mask": "^9.0.0",
-    "core-js": "^3.6.4",
-    "rxjs": "~6.5.4"
+    "core-js": "^3.6.5",
+    "rxjs": "~6.5.5"
   },
   "es2015": "./fesm2015/ui-material.js",
   "esm2015": "./esm2015/ui-material.js",

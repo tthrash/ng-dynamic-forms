@@ -17,6 +17,7 @@ export interface DynamicFormControlModelConfig {
     label?: string;
     labelTooltip?: string;
     controlTooltip?: string;
+    ngDynamicTooltip?: string;
     name?: string;
     relations?: DynamicFormControlRelation[];
     updateOn?: DynamicFormHook;
@@ -34,6 +35,7 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
     @serializable() label: string | null;
     @serializable() labelTooltip: string | null;
     @serializable() controlTooltip: string | null;
+    @serializable() ngDynamicTooltip: string | null;
     @serializable() name: string;
     parent: DynamicPathable | null = null;
     @serializable() relations: DynamicFormControlRelation[];
@@ -56,6 +58,7 @@ export abstract class DynamicFormControlModel implements DynamicPathable {
         this.label = config.label || null;
         this.labelTooltip = config.labelTooltip || null;
         this.controlTooltip = config.controlTooltip || null;
+        this.ngDynamicTooltip = config.ngDynamicTooltip || null;
         this.name = config.name || config.id;
         this.relations = Array.isArray(config.relations) ? config.relations : [];
         this.updateOn = isString(config.updateOn) ? config.updateOn : null;

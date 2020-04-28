@@ -3,6 +3,7 @@
     <mat-slider #matSlider
                 [color]="model.getAdditional('color', 'accent')"
                 [matTooltip]="model.labelTooltip"
+                [ngDynamicTooltip]="model.ngDynamicTooltip"
                 [formControlName]="model.id"
                 [id]="id"
                 [invert]="model.getAdditional('invert', false)"

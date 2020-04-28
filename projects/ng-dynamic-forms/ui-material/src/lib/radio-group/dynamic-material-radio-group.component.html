@@ -3,6 +3,7 @@
     <mat-radio-group #matRadioGroup
                      [formControlName]="model.id"
                      [matTooltip]="model.labelTooltip"
+                     [ngDynamicTooltip]="model.ngDynamicTooltip"
                      [id]="id"
                      [labelPosition]="model.getAdditional('labelPosition', 'after')"
                      [name]="model.name"

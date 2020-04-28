@@ -1,0 +1,13 @@
+<mat-icon *ngIf="show" cdkOverlayOrigin class="ng-dynamic-tooltip-icon" (click)="toggleTooltip()">help</mat-icon>
+
+<!-- Template to load into an overlay. This should ideally be a dynamic component. -->
+<ng-template cdkPortal #portalTemplate="cdkPortal">
+  <mat-card class="ng-dynamic-tooltip-card">
+    <mat-card-content class="ng-dynamic-tooltip-content-container">
+      <p class="ng-dynamic-tooltip-content">{{ message }}</p>
+    </mat-card-content>
+    <mat-card-actions class="ng-dynamic-tooltip-close-button-container">
+      <button mat-stroked-button (click)="closeTooltipDisplay()">Close</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

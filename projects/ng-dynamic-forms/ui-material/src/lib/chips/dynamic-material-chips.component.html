@@ -3,7 +3,8 @@
                 [floatLabel]="model.getAdditional('floatLabel', LABEL_OPTIONS && LABEL_OPTIONS['float'] || 'auto')"
                 [formGroup]="group"
                 [hideRequiredMarker]="model.getAdditional('hideRequiredMarker', false)"
-                [ngClass]="getClass('grid', 'control')">
+                [ngClass]="getClass('grid', 'control')"
+                [ngDynamicTooltip]="model.ngDynamicTooltip">
 
     <mat-chip-list #matChipList
                    [formControlName]="model.id"

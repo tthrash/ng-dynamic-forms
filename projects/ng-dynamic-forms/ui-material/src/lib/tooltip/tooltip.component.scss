@@ -1,0 +1,28 @@
+.ng-dynamic-tooltip-icon {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ng-dynamic-tooltip-card {
+  min-width: 30rem;
+  max-width: 40rem;
+  min-height: 10rem;
+}
+
+.ng-dynamic-tooltip-content {
+  text-align: center;
+}
+
+.ng-dynamic-tooltip-close-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.ng-dynamic-tooltip-container {
+  display: inline-flex !important;
+
+  .ng-dynamic-tooltip-container-child {
+    flex: 1;
+  }
+}

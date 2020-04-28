@@ -2,7 +2,8 @@
                 [color]="model.getAdditional('color', 'primary')"
                 [ngClass]="getClass('grid', 'control')"
                 [floatLabel]="model.getAdditional('floatLabel', LABEL_OPTIONS && LABEL_OPTIONS['float'] || 'auto')"
-                [formGroup]="group">
+                [formGroup]="group"
+                [ngDynamicTooltip]="model.ngDynamicTooltip">
 
     <ng-container *ngIf="model.label" ngProjectAs="mat-label">
 
