@@ -102,9 +102,13 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
     }
 
     ngOnDestroy() {
-
         this.destroyFormControlComponent();
         this.unsubscribe();
+
+        if (this.model && this.model instanceof DynamicFormValueControlModel) {
+            const model = this.model as DynamicFormValueControlModel<any>;
+            model.destroyValueSubscription();
+        }
     }
 
     abstract get componentType(): Type<DynamicFormControl> | null;
@@ -266,6 +270,12 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
     onModelChange(): void {
         this.destroyFormControlComponent();
         this.createFormControlComponent();
+
+        if (this.model && this.model instanceof DynamicFormValueControlModel) {
+            const model = this.model as DynamicFormValueControlModel<any>;
+            model.resetValue();
+            model.initValueSubscription();
+        }
     }
 
     onGroupOrModelChange(): void {

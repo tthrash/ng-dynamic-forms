@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
 import { DynamicFormControlModel, DynamicFormControlModelConfig } from "./dynamic-form-control.model";
 import { DynamicFormControlLayout } from "./misc/dynamic-form-control-layout.model";
 import { serializable } from "../decorator/serializable.decorator";
@@ -25,6 +25,8 @@ export abstract class DynamicFormValueControlModel<T> extends DynamicFormControl
 
     readonly valueChanges: Observable<T>;
 
+    private subscriptions: Subscription[] = [];
+
     protected constructor(config: DynamicFormValueControlModelConfig<T>, layout?: DynamicFormControlLayout) {
 
         super(config, layout);
@@ -35,7 +37,6 @@ export abstract class DynamicFormValueControlModel<T> extends DynamicFormControl
         this.tabIndex = config.tabIndex || null;
 
         this.value$ = new BehaviorSubject(config.value !== null && config.value !== undefined ? config.value : null);
-        this.value$.subscribe(value => this._value = value);
         this.valueChanges = this.value$.asObservable();
     }
 
@@ -49,5 +50,21 @@ export abstract class DynamicFormValueControlModel<T> extends DynamicFormControl
 
     getAdditional(key: string, defaultValue?: any | null): any {
         return this.additional !== null && this.additional.hasOwnProperty(key) ? this.additional[key] : defaultValue;
+    }
+
+    initValueSubscription() {
+        if (this.subscriptions && this.subscriptions.length === 0) {
+            this.subscriptions.push(this.value$.subscribe(value => this._value = value));
+        }
+    }
+
+    resetValue() {
+        const config = this.config as DynamicFormValueControlModelConfig<T>;
+        this.value = config.value != null ? config.value : null;
+    }
+
+    destroyValueSubscription() {
+        this.subscriptions.forEach(sub => sub.unsubscribe());
+        this.subscriptions = [];
     }
 }
