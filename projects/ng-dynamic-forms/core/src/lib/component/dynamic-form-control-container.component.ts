@@ -108,6 +108,7 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
         if (this.model && this.model instanceof DynamicFormValueControlModel) {
             const model = this.model as DynamicFormValueControlModel<any>;
             model.destroyValueSubscription();
+            model.resetValue();
         }
     }
 
