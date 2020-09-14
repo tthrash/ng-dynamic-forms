@@ -40,6 +40,9 @@
   "esm2015": "./esm2015/ui-ionic.js",
   "esm5": "./esm5/ui-ionic.js",
   "fesm2015": "./fesm2015/ui-ionic.js",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "fesm5": "./fesm5/ui-ionic.js",
   "sideEffects": false
 }

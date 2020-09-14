@@ -32,7 +32,6 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "es5BrowserSupport": true,
             "sourceMap": {
               "scripts": true,
               "styles": true,

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit, QueryList, TemplateRef } from "@angular/core";
+import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit, QueryList, TemplateRef, Directive } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { DynamicFormControlContainerComponent } from "./dynamic-form-control-container.component";
 import { DynamicFormControlEvent } from "./dynamic-form-control-event";
@@ -9,6 +9,7 @@ import { DynamicFormLayout } from "../service/dynamic-form-layout.service";
 import { DynamicFormComponentService } from "../service/dynamic-form-component.service";
 import { DynamicFormsErrorTemplateDirective } from "../core";
 
+@Directive()
 export abstract class DynamicFormComponent implements OnInit, OnDestroy {
 
     group: FormGroup;
