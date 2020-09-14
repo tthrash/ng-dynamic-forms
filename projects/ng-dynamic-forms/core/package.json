@@ -1,6 +1,6 @@
 {
   "name": "@ng-dynamic-forms2/core",
-  "version": "10.2.3",
+  "version": "11.0.0",
   "description": "A rapid form development library for Angular",
   "keywords": [
     "angular",
@@ -27,12 +27,12 @@
   "module": "./fesm5/core.js",
   "typings": "./core.d.ts",
   "peerDependencies": {
-    "@angular/common": "~9.1.7",
-    "@angular/core": "~9.1.7",
-    "@angular/forms": "~9.1.7",
-    "@angular/cdk": "^9.2.3",
+    "@angular/common": "~10.1.1",
+    "@angular/core": "~10.1.1",
+    "@angular/forms": "~10.1.1",
+    "@angular/cdk": "^10.2.0",
     "core-js": "^3.6.5",
-    "rxjs": "~6.5.5"
+    "rxjs": "~6.6.3"
   },
   "es2015": "./fesm2015/core.js",
   "esm2015": "./esm2015/core.js",
