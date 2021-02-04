@@ -4,6 +4,6 @@
     "sourceMap": false,
   },
   "angularCompilerOptions": {
-    "enableIvy": true
+    "enableIvy": false
   }
 }
