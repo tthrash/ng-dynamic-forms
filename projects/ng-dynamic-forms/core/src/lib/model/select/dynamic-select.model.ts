@@ -43,19 +43,23 @@ export class DynamicSelectModel<T> extends DynamicOptionControlModel<T> {
     }
 
     clone(withState: boolean = false): DynamicSelectModel<T> {
-        const config = {...this.config} as DynamicSelectModelConfig<T>;
+        const config = { ...this.config } as DynamicSelectModelConfig<T>;
 
         if (withState) {
             const copyWithState = this.toJSON();
+
             for (const key of Object.keys(copyWithState)) {
                 if (typeof config[key] !== "undefined") {
                     config[key] = copyWithState[key];
                 }
             }
-
-            config.options = (this.config as DynamicSelectModelConfig<T>).options;
         }
 
-        return new DynamicSelectModel<T>(config, this.layout);
+
+        const newSelectModel = new DynamicSelectModel<T>(config, this.layout);
+
+        newSelectModel.options$ = this.options$;
+
+        return
     }
 }
