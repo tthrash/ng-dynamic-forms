@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { MatSlider, MatSliderModule } from "@angular/material/slider";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicSliderModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicSliderModel } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialSliderComponent } from "./dynamic-material-slider.component";
 
 describe("DynamicMaterialSliderComponent test suite", () => {

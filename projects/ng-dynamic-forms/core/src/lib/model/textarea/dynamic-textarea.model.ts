@@ -31,4 +31,19 @@ export class DynamicTextAreaModel extends DynamicInputControlModel<string> {
         this.rows = isNumber(config.rows) ? config.rows : 2;
         this.wrap = config.wrap || DYNAMIC_FORM_TEXTAREA_WRAP_SOFT;
     }
+
+    clone(withState: boolean = false): DynamicTextAreaModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicTextAreaModel(this.config, this.layout);
+    }
 }

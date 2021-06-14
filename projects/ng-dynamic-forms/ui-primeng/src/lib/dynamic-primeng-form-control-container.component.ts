@@ -44,7 +44,7 @@ import {
     DynamicInputModel,
     DynamicSelectModel,
     DynamicTemplateDirective
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicPrimeNGCheckboxComponent } from "./checkbox/dynamic-primeng-checkbox.component";
 import { DynamicPrimeNGColorPickerComponent } from "./colorpicker/dynamic-primeng-colorpicker.component";
 import { DynamicPrimeNGCalendarComponent } from "./calendar/dynamic-primeng-calendar.component";

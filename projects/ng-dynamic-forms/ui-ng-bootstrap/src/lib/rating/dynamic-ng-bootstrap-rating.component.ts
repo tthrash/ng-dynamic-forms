@@ -8,7 +8,7 @@ import {
     DynamicFormLayoutService,
     DynamicFormValidationService,
     DynamicRatingModel
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 
 @Component({
     selector: "dynamic-ng-bootstrap-rating",

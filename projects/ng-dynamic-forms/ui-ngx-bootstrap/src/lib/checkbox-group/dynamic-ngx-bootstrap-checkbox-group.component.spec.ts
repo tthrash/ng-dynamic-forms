@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
 import { ButtonsModule } from "ngx-bootstrap/buttons";
-import { DynamicCheckboxGroupModel, DynamicFormsCoreModule, DynamicFormService } from "@ng-dynamic-forms/core";
+import { DynamicCheckboxGroupModel, DynamicFormsCoreModule, DynamicFormService } from "@ng-dynamic-forms2/core";
 import { DynamicNGxBootstrapCheckboxGroupComponent } from "./dynamic-ngx-bootstrap-checkbox-group.component";
 
 describe("DynamicNGxBootstrapCheckboxGroupComponent test suite", () => {

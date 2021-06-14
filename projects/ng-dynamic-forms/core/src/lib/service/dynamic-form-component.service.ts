@@ -21,8 +21,8 @@ export class DynamicFormComponentService {
         this.DYNAMIC_FORM_CONTROL_MAP_FN = DYNAMIC_FORM_CONTROL_MAP_FN as DynamicFormControlMapFn;
     }
 
-    getForms(): IterableIterator<DynamicFormComponent> {
-        return this.forms.values();
+    getForms(): DynamicFormComponent[] {
+        return this.forms;
     }
 
     registerForm(component: DynamicFormComponent): void {
@@ -38,6 +38,23 @@ export class DynamicFormComponentService {
         }
     }
 
+    getFormControls(): DynamicFormControlRef[] {
+        const controls: DynamicFormControlRef[] = [];
+
+        Object.values(this.formControls).forEach(value => {
+            let values: DynamicFormControlRef[];
+            if (Array.isArray(value)) {
+                values = value as DynamicFormControlRef[];
+            }
+            else {
+                values = [value];
+            }
+            controls.push(...values);
+        });
+
+        return controls;
+    }
+
     getFormControlRef(modelId: string, index?: number): DynamicFormControlRef | undefined {
 
         const ref: DynamicFormControlRef | DynamicFormControlRef[] = this.formControls[modelId];
@@ -47,6 +64,7 @@ export class DynamicFormComponentService {
             return Array.isArray(ref) ? ref[index] : undefined;
 
         } else {
+
             return ref as DynamicFormControlRef;
         }
     }

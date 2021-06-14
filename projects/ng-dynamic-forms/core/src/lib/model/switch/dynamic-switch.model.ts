@@ -24,4 +24,19 @@ export class DynamicSwitchModel extends DynamicCheckControlModel {
         this.offLabel = config.offLabel || null;
         this.onLabel = config.onLabel || null;
     }
+
+    clone(withState: boolean = false): DynamicSwitchModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicSwitchModel(this.config, this.layout);
+    }
 }

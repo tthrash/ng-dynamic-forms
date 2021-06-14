@@ -1,4 +1,3 @@
-import { ɵlooseIdentical as looseIdentical } from "@angular/core";
 import { DynamicOptionControlModel, DynamicOptionControlModelConfig } from "../dynamic-option-control.model";
 import { DynamicFormControlLayout } from "../misc/dynamic-form-control-layout.model";
 import { serializable } from "../../decorator/serializable.decorator";
@@ -31,7 +30,7 @@ export class DynamicSelectModel<T> extends DynamicOptionControlModel<T> {
 
         super(config, layout);
 
-        this.compareWithFn = isFunction(config.compareWithFn) ? config.compareWithFn : looseIdentical;
+        this.compareWithFn = isFunction(config.compareWithFn) ? config.compareWithFn : Object.is;
         this.filterable = isBoolean(config.filterable) ? config.filterable : false;
         this.multiple = isBoolean(config.multiple) ? config.multiple : false;
         this.placeholder = config.placeholder || "";
@@ -41,5 +40,26 @@ export class DynamicSelectModel<T> extends DynamicOptionControlModel<T> {
 
     select(...indices: number[]): void {
         this.value = this.multiple ? indices.map(index => this.get(index).value) : this.get(indices[0]).value;
+    }
+
+    clone(withState: boolean = false): DynamicSelectModel<T> {
+        const config = { ...this.config } as DynamicSelectModelConfig<T>;
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+
+        const newSelectModel = new DynamicSelectModel<T>(config, this.layout);
+
+        newSelectModel.options$ = this.options$;
+
+        return newSelectModel;
     }
 }

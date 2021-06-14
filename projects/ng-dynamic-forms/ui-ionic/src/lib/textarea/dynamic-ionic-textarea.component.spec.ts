@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
 import { IonicModule, IonTextarea } from "@ionic/angular";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicTextAreaModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicTextAreaModel } from "@ng-dynamic-forms2/core";
 import { DynamicIonicTextAreaComponent } from "./dynamic-ionic-textarea.component";
 
 describe("DynamicIonicTextAreaComponent test suite", () => {

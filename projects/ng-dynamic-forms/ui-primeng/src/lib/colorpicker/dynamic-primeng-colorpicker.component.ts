@@ -7,7 +7,7 @@ import {
     DynamicFormLayoutService,
     DynamicFormValidationService,
     DynamicFormControlComponent, DynamicFormControlLayout
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 
 @Component({
     selector: "dynamic-primeng-colorpicker",

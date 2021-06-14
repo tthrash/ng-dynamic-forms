@@ -6,7 +6,7 @@ import { By } from "@angular/platform-browser";
 import { MatAutocomplete, MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatInput, MatInputModule } from "@angular/material/input";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialInputComponent } from "./dynamic-material-input.component";
 
 describe("DynamicMaterialInputComponent test suite", () => {

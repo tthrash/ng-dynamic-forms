@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit, QueryList } from "@angular/core";
+import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit, QueryList, TemplateRef, Directive } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { DynamicFormControlContainerComponent } from "./dynamic-form-control-container.component";
 import { DynamicFormControlEvent } from "./dynamic-form-control-event";
@@ -7,7 +7,9 @@ import { DynamicFormModel } from "../model/dynamic-form.model";
 import { DynamicTemplateDirective } from "../directive/dynamic-template.directive";
 import { DynamicFormLayout } from "../service/dynamic-form-layout.service";
 import { DynamicFormComponentService } from "../service/dynamic-form-component.service";
+import { DynamicFormsErrorTemplateDirective } from "../core";
 
+@Directive()
 export abstract class DynamicFormComponent implements OnInit, OnDestroy {
 
     group: FormGroup;
@@ -16,10 +18,13 @@ export abstract class DynamicFormComponent implements OnInit, OnDestroy {
 
     components: QueryList<DynamicFormControlContainerComponent>;
     templates: QueryList<DynamicTemplateDirective>;
+    errorTemplates: QueryList<DynamicFormsErrorTemplateDirective>;
 
     blur: EventEmitter<DynamicFormControlEvent>;
     change: EventEmitter<DynamicFormControlEvent>;
     focus: EventEmitter<DynamicFormControlEvent>;
+
+    errorTemplatesMap: Map<string, TemplateRef<any>>;
 
     protected constructor(protected changeDetectorRef: ChangeDetectorRef,
                           protected componentService: DynamicFormComponentService) {
@@ -63,5 +68,28 @@ export abstract class DynamicFormComponent implements OnInit, OnDestroy {
 
     onCustomEvent($event: DynamicFormControlEvent, customEventEmitter: EventEmitter<DynamicFormControlEvent>) {
         customEventEmitter.emit($event);
+    }
+
+    ngAfterContentInit(): void {
+        this._updateErrorTemplates();
+    }
+
+     /**
+     * Getter method for error template references
+     */
+    getErrorTemplate(name: string): TemplateRef<any> {
+        return this.errorTemplatesMap.get(name);
+    }
+
+    /**
+     * Loads error templates and sets them in a map for faster access.
+     */
+    private _updateErrorTemplates(): void {
+        this.errorTemplatesMap = new Map<string, TemplateRef<any>>();
+        if (this.errorTemplates) {
+            for (const errorTemplate of this.errorTemplates.toArray()) {
+                this.errorTemplatesMap.set(errorTemplate.dynamicFormsErrorKey, errorTemplate.templateRef);
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
 import { IonicModule, IonInput } from "@ionic/angular";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms2/core";
 import { DynamicIonicInputComponent } from "./dynamic-ionic-input.component";
 
 describe("DynamicIonicInputComponent test suite", () => {

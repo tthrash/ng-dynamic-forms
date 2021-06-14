@@ -1,11 +1,16 @@
 <mat-form-field [appearance]="model.getAdditional('appearance', 'legacy')"
                 [color]="model.getAdditional('color', 'primary')"
-                [floatLabel]="model.getAdditional('floatLabel', LABEL_OPTIONS && LABEL_OPTIONS['float'] || 'auto')"
+                [floatLabel]="model.getAdditional('floatLabel', FORM_FIELD_OPTIONS && FORM_FIELD_OPTIONS['float'] || 'auto')"
                 [formGroup]="group"
                 [hideRequiredMarker]="model.getAdditional('hideRequiredMarker', false)"
-                [ngClass]="getClass('grid', 'control')">
+                [ngClass]="getClass('grid', 'control')"
+                [ngDynamicTooltip]="model.ngDynamicTooltip">
 
-    <mat-chip-list #matChipList [formControlName]="model.id" [id]="id" [multiple]="true">
+    <mat-chip-list #matChipList
+                   [formControlName]="model.id"
+                   [id]="id"
+                   [multiple]="true"
+                   [tabIndex]="model.tabIndex">
 
         <mat-chip *ngFor="let chip of chips; let index = index"
                   [selectable]="false"
@@ -18,6 +23,7 @@
         </mat-chip>
 
         <input matInput
+               [matTooltip]="model.labelTooltip"
                [matAutocomplete]="matAutocomplete"
                [matChipInputAddOnBlur]="model.getAdditional('matChipInputAddOnBlur', true)"
                [matChipInputFor]="matChipList"
@@ -38,5 +44,15 @@
         </mat-autocomplete>
 
     </mat-chip-list>
+
+    <mat-error>
+        <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { model: model, control: control, errors: control?.errors }"></ng-container>
+        </ng-container>
+
+        <ng-template #defaultErrorMessagesTemplate>
+            <div *ngFor="let message of errorMessages">{{ message }}</div>
+        </ng-template>
+    </mat-error>
 
 </mat-form-field>

@@ -35,7 +35,7 @@ import {
     DynamicFormRelationService,
     DynamicFormValidationService,
     DynamicTemplateDirective
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicFoundationTextAreaComponent } from "./textarea/dynamic-foundation-textarea.component";
 import { DynamicFoundationSwitchComponent } from "./switch/dynamic-foundation-switch.component";
 import { DynamicFoundationSelectComponent } from "./select/dynamic-foundation-select.component";

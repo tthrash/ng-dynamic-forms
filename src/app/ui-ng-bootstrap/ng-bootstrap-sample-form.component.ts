@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { DynamicFormService, DynamicFormControlModel, DynamicFormLayout, DynamicInputModel } from "@ng-dynamic-forms/core";
+import { DynamicFormService, DynamicFormControlModel, DynamicFormLayout, DynamicInputModel } from "@ng-dynamic-forms2/core";
 import { NG_BOOTSTRAP_SAMPLE_FORM_MODEL } from "./ng-bootstrap-sample-form.model";
 import { NG_BOOTSTRAP_SAMPLE_FORM_LAYOUT } from "./ng-bootstrap-sample-form.layout";
 import { DynamicNGBootstrapFormComponent } from "@ng-dynamic-forms/ui-ng-bootstrap";
@@ -17,7 +17,7 @@ export class NGBootstrapSampleFormComponent implements OnInit {
     formGroup: FormGroup;
     formLayout: DynamicFormLayout = NG_BOOTSTRAP_SAMPLE_FORM_LAYOUT;
 
-    @ViewChild(DynamicNGBootstrapFormComponent, {static: false}) formComponent: DynamicNGBootstrapFormComponent;
+    @ViewChild(DynamicNGBootstrapFormComponent) formComponent: DynamicNGBootstrapFormComponent;
 
     constructor(private formService: DynamicFormService) {
     }

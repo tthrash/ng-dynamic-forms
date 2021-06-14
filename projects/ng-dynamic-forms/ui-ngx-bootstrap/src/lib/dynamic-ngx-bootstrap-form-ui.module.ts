@@ -6,7 +6,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { RatingModule } from "ngx-bootstrap/rating";
 import { TimepickerModule } from "ngx-bootstrap/timepicker";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule } from "@ng-dynamic-forms2/core";
 import { DynamicNGxBootstrapFormControlContainerComponent } from "./dynamic-ngx-bootstrap-form-control-container.component";
 import { DynamicNGxBootstrapFormComponent } from "./dynamic-ngx-bootstrap-form.component";
 import { DynamicNGxBootstrapCheckboxComponent } from "./checkbox/dynamic-ngx-bootstrap-checkbox.component";

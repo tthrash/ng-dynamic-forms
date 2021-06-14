@@ -8,7 +8,7 @@ import {
     DynamicFormValidationService,
     DynamicFormControlComponent,
     DynamicRatingModel, DynamicFormControlLayout
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 
 @Component({
     selector: "dynamic-primeng-rating",

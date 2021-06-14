@@ -9,8 +9,9 @@ import {
     DynamicTextAreaModel,
     MATCH_DISABLED,
     MATCH_REQUIRED
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { BehaviorSubject } from "rxjs";
+import { Validators } from "@angular/forms";
 
 export const STATES_AUTOCOMPLETE_LIST = [
     "Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -33,13 +34,17 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
                 id: "arrivalDate",
                 inline: false,
-                placeholder: "Date of Arrival"
+                placeholder: "Date of Arrival",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
             }),
 
             new DynamicDatePickerModel({
                 id: "departureDate",
                 inline: false,
-                placeholder: "Date of Departure"
+                placeholder: "Date of Departure",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
             })
         ],
         validators: {
@@ -59,28 +64,30 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "roomSize",
                 placeholder: "Room Size",
                 hint: "Choose a room type",
-                options: [
-                    {
-                        label: "Single Room",
-                        value: "single-room"
-                    },
-                    {
-                        label: "Double Room",
-                        value: "double-room"
-                    },
-                    {
-                        label: "Business Suite",
-                        value: "business-suite"
-                    },
-                    {
-                        label: "Presidential Suite",
-                        value: "presidential-suite"
-                    },
-                    {
-                        label: "Storeroom",
-                        value: "storeroom"
-                    }
-                ]
+                labelTooltip: "Number of Weeks Required to have Scheduled",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
+                // options: [
+                //     {
+                //         label: "Single Room",
+                //         value: "single-room"
+                //     },
+                //     {
+                //         label: "Double Room",
+                //         value: "double-room"
+                //     },
+                //     {
+                //         label: "Business Suite",
+                //         value: "business-suite"
+                //     },
+                //     {
+                //         label: "Presidential Suite",
+                //         value: "presidential-suite"
+                //     },
+                //     {
+                //         label: "Storeroom",
+                //         value: "storeroom"
+                //     }
+                // ]
             }),
 
             new DynamicInputModel({
@@ -88,6 +95,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "roomQuantity",
                 inputType: "number",
                 placeholder: "Room Quantity",
+                labelTooltip: "Number of Weeks Required to have Scheduled",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
                 hint: "Maximum: 5",
                 max: 5,
                 min: 0
@@ -100,12 +109,9 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         id: "firstName",
         maxLength: 25,
         placeholder: "First Name",
-        validators: {
-            required: null
-        },
-        errorMessages: {
-            required: "Field is required"
-        }
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
+        validators: [Validators.required]
     }),
 
     new DynamicInputModel({
@@ -113,6 +119,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         id: "lastName",
         maxLength: 50,
         placeholder: "Last Name",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         validators: {
             required: null
         },
@@ -128,6 +136,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "email",
         placeholder: "E-Mail",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         validators: {
             email: null
         },
@@ -142,6 +152,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
         inputType: "tel",
         placeholder: "Phone Number",
         hint: "Add your country code first",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         prefix: "+",
         validators: {
             required: null
@@ -175,7 +187,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
             new DynamicInputModel({
 
                 id: "zipCode",
-                placeholder: "ZIP"
+                placeholder: "ZIP",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
             }),
 
             new DynamicInputModel({
@@ -183,13 +196,15 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 id: "state",
                 hint: "Autocomplete",
                 placeholder: "State",
-                list: new BehaviorSubject(STATES_AUTOCOMPLETE_LIST)
+                list: new BehaviorSubject(STATES_AUTOCOMPLETE_LIST),
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
             }),
 
             new DynamicInputModel({
 
                 id: "city",
-                placeholder: "City"
+                placeholder: "City",
+                ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
             })
         ]
     }),
@@ -220,12 +235,15 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
                 label: "Balcony",
                 value: "extraBalcony"
             }
-        ]
+        ],
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
     }),
 
     new DynamicRadioGroupModel<string>({
 
         id: "payment",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         options: [
             {
                 label: "Credit Card",
@@ -251,6 +269,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "note",
         rows: 3,
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         placeholder: "Personal Note",
         relations: [
             {
@@ -268,6 +288,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
 
         id: "tags",
         placeholder: "Tags",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         multiple: true,
         value: ["hotel", "booking"]
     }),
@@ -284,6 +306,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
     new DynamicSwitchModel({
 
         id: "newsletter",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         offLabel: "Subscribe to newsletter",
         onLabel: "Subscribe to newsletter",
         value: true
@@ -292,6 +316,8 @@ export const MATERIAL_SAMPLE_FORM_MODEL = [
     new DynamicCheckboxModel({
 
         id: "confirm",
+        labelTooltip: "Number of Weeks Required to have Scheduled",
+        ngDynamicTooltip: "Number of Weeks Required to have Scheduled",
         label: "I confirm the information given above"
     })
 ];

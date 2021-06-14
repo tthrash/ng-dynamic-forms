@@ -1,6 +1,6 @@
 {
-  "name": "@ng-dynamic-forms/ui-material",
-  "version": "10.1.0",
+  "name": "@ng-dynamic-forms2/ui-material",
+  "version": "12.4.0",
   "description": "Material UI package for NG Dynamic Forms",
   "keywords": [
     "angular",
@@ -11,36 +11,33 @@
     "reactive forms",
     "ui"
   ],
-  "homepage": "https://github.com/udos86/ng-dynamic-forms#readme",
+  "author": {
+    "name": "Tyler Thrash",
+    "url": "https://github.com/tthrash/ng-dynamic-forms"
+  },
+  "homepage": "https://github.com/tthrash/ng-dynamic-forms#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tthrash/ng-dynamic-forms.git"
+  },
   "bugs": {
-    "url": "https://github.com/udos86/ng-dynamic-forms/issues"
+    "url": "https://github.com/tthrash/ng-dynamic-forms/issues"
   },
   "license": "ISC",
-  "author": {
-    "name": "Udo Schöfer",
-    "email": "ng2-dynamic-forms@udos86.de",
-    "url": "https://github.com/udos86/ng-dynamic-forms"
-  },
   "main": "./bundles/ui-material.umd.js",
   "module": "./fesm5/ui-material.js",
   "typings": "./ui-material.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/udos86/ng-dynamic-forms.git"
-  },
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/forms": "^8.0.0",
-    "@angular/material": "^8.0.0",
-    "@ng-dynamic-forms/core": "^10.1.0",
-    "angular2-text-mask": "^9.0.0",
-    "rxjs": "^6.4.0"
+    "@ng-dynamic-forms2/core": "^12.4.0"
   },
   "es2015": "./fesm2015/ui-material.js",
   "esm2015": "./esm2015/ui-material.js",
   "esm5": "./esm5/ui-material.js",
   "fesm2015": "./fesm2015/ui-material.js",
   "fesm5": "./fesm5/ui-material.js",
-  "sideEffects": false
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "private": false
 }

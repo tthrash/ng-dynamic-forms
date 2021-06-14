@@ -7,7 +7,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatDatepicker, MatDatepickerModule } from "@angular/material/datepicker";
 import { MatInput, MatInputModule } from "@angular/material/input";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicDatePickerModel, DynamicFormsCoreModule, DynamicFormService } from "@ng-dynamic-forms/core";
+import { DynamicDatePickerModel, DynamicFormsCoreModule, DynamicFormService } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialDatePickerComponent } from "./dynamic-material-datepicker.component";
 
 describe("DynamicMaterialDatePickerComponent test suite", () => {

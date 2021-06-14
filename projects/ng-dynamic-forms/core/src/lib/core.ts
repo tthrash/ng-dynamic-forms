@@ -12,6 +12,7 @@ export * from "./decorator/serializable.decorator";
 
 export * from "./directive/dynamic-list.directive";
 export * from "./directive/dynamic-template.directive";
+export * from "./directive/dynamic-error-template.directive";
 
 export * from "./model/dynamic-form-control.model";
 export * from "./model/dynamic-form.model";

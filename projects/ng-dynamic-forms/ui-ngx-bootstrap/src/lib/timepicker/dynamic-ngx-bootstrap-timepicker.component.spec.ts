@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TimepickerComponent, TimepickerModule } from "ngx-bootstrap/timepicker";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicTimePickerModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicTimePickerModel } from "@ng-dynamic-forms2/core";
 import { DynamicNGxBootstrapTimePickerComponent } from "./dynamic-ngx-bootstrap-timepicker.component";
 
 describe("DynamicNGxBootstrapTimePickerComponent test suite", () => {

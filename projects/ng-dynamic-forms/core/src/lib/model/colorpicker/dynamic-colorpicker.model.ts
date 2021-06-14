@@ -25,4 +25,19 @@ export class DynamicColorPickerModel extends DynamicFormValueControlModel<string
         this.format = isString(config.format) ? config.format : null;
         this.inline = isBoolean(config.inline) ? config.inline : false;
     }
+
+    clone(withState: boolean = false): DynamicColorPickerModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicColorPickerModel(this.config, this.layout);
+    }
 }

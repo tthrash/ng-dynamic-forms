@@ -40,4 +40,19 @@ export class DynamicFileUploadModel extends DynamicFileControlModel {
         this.showFileList = isBoolean(config.showFileList) ? config.showFileList : true;
         this.url = config.url || null;
     }
+
+    clone(withState: boolean = false): DynamicFileUploadModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicFileUploadModel(this.config, this.layout);
+    }
 }

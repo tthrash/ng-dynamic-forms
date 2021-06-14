@@ -6,15 +6,46 @@
 
         <form [formGroup]="formGroup">
 
-            <dynamic-material-form [group]="formGroup"
+            <!-- <dynamic-material-form [group]="formGroup"
                                    [layout]="formLayout"
                                    [model]="formModel"
                                    (blur)="onBlur($event)"
                                    (change)="onChange($event)"
                                    (focus)="onFocus($event)"
-                                   (matEvent)="onMatEvent($event)"></dynamic-material-form>
+                                   (matEvent)="onMatEvent($event)">
+
+            </dynamic-material-form> -->
+
+            <dynamic-material-form [group]="formGroup"
+                                    [layout]="formLayout"
+                                    [model]="formModel"
+                                    (blur)="onBlur($event)"
+                                    (change)="onChange($event)"
+                                    (focus)="onFocus($event)"
+                                    (matEvent)="onMatEvent($event)">
+                        <ng-template let-errors="errors" let-control="control" dynamicFormsErrorKey="firstName">
+                            <span>First Name is required.</span>
+                        </ng-template>
+
+            </dynamic-material-form>
+
+            <!-- <dynamic-material-form-control *ngFor="let controlModel of formModel"
+                                            #componentRef
+                                            [group]="formGroup"
+                                            [model]="controlModel"
+                                            [errorTemplate]="errorTemplate">
+                <ng-template #errorTemplate let-errors="errors" let-control="control" dynamicFormsErrorKey="controlModel.id">
+                    <ng-container *ngIf="errors">
+                        <span>First Name is required.</span>
+                    </ng-container>
+                </ng-template>
+            </dynamic-material-form-control> -->
 
         </form>
+
+        <mat-card-actions>
+            <button mat-button (click)="onClick()">Ok</button>
+        </mat-card-actions>
 
     </mat-card>
 

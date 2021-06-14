@@ -4,6 +4,7 @@
                                [layout]="layout"
                                [model]="controlModel"
                                [templates]="templates"
+                               [errorTemplate]="getErrorTemplate(controlModel.id)"
                                (blur)="onBlur($event)"
                                (change)="onChange($event)"
                                (focus)="onFocus($event)"

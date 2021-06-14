@@ -11,8 +11,9 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSliderModule } from "@angular/material/slider";
+import { MatTooltipModule } from "@angular/material/tooltip";
 import { TextMaskModule } from "angular2-text-mask";
-import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule } from "@ng-dynamic-forms2/core";
 import { DynamicMaterialFormControlContainerComponent } from "./dynamic-material-form-control-container.component";
 import { DynamicMaterialFormComponent } from "./dynamic-material-form.component";
 import { DynamicMaterialCheckboxComponent } from "./checkbox/dynamic-material-checkbox.component";
@@ -26,12 +27,15 @@ import { DynamicMaterialSelectComponent } from "./select/dynamic-material-select
 import { DynamicMaterialSlideToggleComponent } from "./slide-toggle/dynamic-material-slide-toggle.component";
 import { DynamicMaterialSliderComponent } from "./slider/dynamic-material-slider.component";
 import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-textarea.component";
+import { NgDynamicTooltipModule } from "./tooltip/tooltip.module";
+
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         MatAutocompleteModule,
+        NgDynamicTooltipModule,
         MatCheckboxModule,
         MatChipsModule,
         MatDatepickerModule,
@@ -41,6 +45,7 @@ import { DynamicMaterialTextAreaComponent } from "./textarea/dynamic-material-te
         MatSelectModule,
         MatSliderModule,
         MatSlideToggleModule,
+        MatTooltipModule,
         TextMaskModule,
         DynamicFormsCoreModule
     ],

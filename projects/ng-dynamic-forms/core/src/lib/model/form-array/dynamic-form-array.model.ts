@@ -127,4 +127,18 @@ export class DynamicFormArrayModel extends DynamicFormControlModel {
         this.groups.splice(0);
         this.updateGroupIndex();
     }
+
+    clone(withState: boolean = false): DynamicFormArrayModel {
+        const config = {...this.config};
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicFormArrayModel(this.config, this.layout);
+    }
 }

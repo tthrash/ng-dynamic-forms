@@ -1,8 +1,9 @@
 <mat-form-field [appearance]="model.getAdditional('appearance', 'legacy')"
                 [color]="model.getAdditional('color', 'primary')"
                 [ngClass]="getClass('grid', 'control')"
-                [floatLabel]="model.getAdditional('floatLabel', LABEL_OPTIONS && LABEL_OPTIONS['float'] || 'auto')"
-                [formGroup]="group">
+                [floatLabel]="model.getAdditional('floatLabel', FORM_FIELD_OPTIONS && FORM_FIELD_OPTIONS['float'] || 'auto')"
+                [formGroup]="group"
+                [ngDynamicTooltip]="model.ngDynamicTooltip">
 
     <ng-container *ngIf="model.label" ngProjectAs="mat-label">
 
@@ -19,10 +20,12 @@
                 [errorStateMatcher]="model.getAdditional('errorStateMatcher', errorStateMatcher)"
                 [formControlName]="model.id"
                 [id]="id"
+                [matTooltip]="model.labelTooltip"
                 [multiple]="model.multiple"
                 [ngClass]="getClass('element', 'control')"
                 [placeholder]="model.placeholder"
                 [required]="model.required"
+                [tabIndex]="model.tabIndex"
                 (openedChange)="onCustomEvent($event, 'openedChange')"
                 (selectionChange)="onChange($event)">
 
@@ -36,6 +39,14 @@
 
     <mat-hint *ngIf="model.hint !== null" align="start" [innerHTML]="model.hint"></mat-hint>
 
-    <mat-error *ngFor="let message of errorMessages">{{ message }}</mat-error>
+    <mat-error>
+        <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { model: model, control: control, errors: control?.errors }"></ng-container>
+        </ng-container>
+
+        <ng-template #defaultErrorMessagesTemplate>
+            <div *ngFor="let message of errorMessages">{{ message }}</div>
+        </ng-template>
+    </mat-error>
 
 </mat-form-field>

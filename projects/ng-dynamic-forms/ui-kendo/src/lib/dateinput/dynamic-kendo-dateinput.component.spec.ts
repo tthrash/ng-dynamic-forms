@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { By } from "@angular/platform-browser";
 import { TextMaskModule } from "angular2-text-mask";
 import { DateInputComponent, DateInputModule } from "@progress/kendo-angular-dateinputs";
-import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms/core";
+import { DynamicFormsCoreModule, DynamicFormService, DynamicInputModel } from "@ng-dynamic-forms2/core";
 import { DynamicKendoDateInputComponent } from "./dynamic-kendo-dateinput.component";
 
 describe("DynamicKendoDateInputComponent test suite", () => {

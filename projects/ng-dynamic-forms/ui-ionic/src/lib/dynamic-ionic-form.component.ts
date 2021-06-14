@@ -16,7 +16,7 @@ import {
     DynamicFormLayout,
     DynamicFormModel,
     DynamicTemplateDirective
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicIonicFormControlContainerComponent } from "./dynamic-ionic-form-control-container.component";
 
 @Component({

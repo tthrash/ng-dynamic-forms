@@ -9,7 +9,7 @@ import {
     DynamicFormLayoutService,
     DynamicFormValidationService,
     DynamicTemplateDirective
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicKendoFormControlContainerComponent } from "../dynamic-kendo-form-control-container.component";
 
 @Component({

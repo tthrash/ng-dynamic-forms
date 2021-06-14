@@ -112,4 +112,18 @@ export class DynamicInputModel extends DynamicInputControlModel<string | number 
 
         return json;
     }
+
+    clone(withState: boolean = false): DynamicInputModel {
+        const config = {...this.config};
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicInputModel(config, this.layout);
+    }
 }

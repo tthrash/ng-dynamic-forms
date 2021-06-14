@@ -1,15 +1,4 @@
-import {
-    ChangeDetectorRef,
-    ComponentFactoryResolver,
-    ComponentRef,
-    EventEmitter,
-    OnChanges,
-    OnDestroy,
-    QueryList,
-    SimpleChanges,
-    Type,
-    ViewContainerRef
-} from "@angular/core";
+import { ChangeDetectorRef, ComponentFactoryResolver, ComponentRef, EventEmitter, OnChanges, OnDestroy, QueryList, SimpleChanges, Type, ViewContainerRef, TemplateRef, Directive } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Subscription } from "rxjs";
 import {
@@ -45,6 +34,7 @@ import { DynamicFormRelationService } from "../service/dynamic-form-relation.ser
 import { DynamicFormGroupComponent } from "./dynamic-form-group.component";
 import { DynamicFormArrayComponent } from "./dynamic-form-array.component";
 
+@Directive()
 export abstract class DynamicFormControlContainerComponent implements OnChanges, OnDestroy {
 
     private _hasFocus = false;
@@ -59,6 +49,7 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
 
     contentTemplateList: QueryList<DynamicTemplateDirective> | undefined;
     inputTemplateList: QueryList<DynamicTemplateDirective> | undefined;
+    errorTemplate: TemplateRef<any> | undefined;
 
     blur: EventEmitter<DynamicFormControlEvent>;
     change: EventEmitter<DynamicFormControlEvent>;
@@ -100,9 +91,14 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
     }
 
     ngOnDestroy() {
-
         this.destroyFormControlComponent();
         this.unsubscribe();
+
+        if (this.model && this.model instanceof DynamicFormValueControlModel) {
+            const model = this.model as DynamicFormValueControlModel<any>;
+            model.destroyValueSubscription();
+            model.resetValue();
+        }
     }
 
     abstract get componentType(): Type<DynamicFormControl> | null;
@@ -169,7 +165,7 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
 
         this.changeDetectorRef.markForCheck();
 
-        const component = this.componentRef.instance;
+        const component = this.componentRef && this.componentRef.instance;
 
         if (component && (component instanceof DynamicFormGroupComponent || component instanceof DynamicFormArrayComponent)) {
             component.markForCheck();
@@ -196,6 +192,10 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
 
             if (this.templates) {
                 component.templates = this.templates;
+            }
+
+            if (this.errorTemplate) {
+                component.errorTemplate = this.errorTemplate;
             }
 
             this.componentSubscriptions.push(component.blur.subscribe(($event: any) => this.onBlur($event)));
@@ -260,6 +260,12 @@ export abstract class DynamicFormControlContainerComponent implements OnChanges,
     onModelChange(): void {
         this.destroyFormControlComponent();
         this.createFormControlComponent();
+
+        if (this.model && this.model instanceof DynamicFormValueControlModel) {
+            const model = this.model as DynamicFormValueControlModel<any>;
+            model.resetValue();
+            model.initValueSubscription();
+        }
     }
 
     onGroupOrModelChange(): void {

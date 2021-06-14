@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Inject, Input, Optional, Output, ViewChild } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { MAT_AUTOCOMPLETE_DEFAULT_OPTIONS, MatAutocomplete, MatAutocompleteDefaultOptions } from "@angular/material/autocomplete";
-import { ErrorStateMatcher, LabelOptions, MAT_LABEL_GLOBAL_OPTIONS, MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from "@angular/material/core";
+import { ErrorStateMatcher, MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from "@angular/material/core";
+import { MatFormFieldDefaultOptions, MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 import { MatInput } from "@angular/material/input";
 import {
     DynamicFormControlCustomEvent, DynamicFormControlLayout,
@@ -9,7 +10,7 @@ import {
     DynamicFormLayoutService,
     DynamicFormValidationService,
     DynamicInputModel
-} from "@ng-dynamic-forms/core";
+} from "@ng-dynamic-forms2/core";
 import { DynamicMaterialFormInputControlComponent } from "../dynamic-material-form-input-control.component";
 
 @Component({
@@ -35,7 +36,7 @@ export class DynamicMaterialInputComponent extends DynamicMaterialFormInputContr
                 protected validationService: DynamicFormValidationService,
                 @Inject(ErrorStateMatcher) public errorStateMatcher: ErrorStateMatcher,
                 @Inject(MAT_AUTOCOMPLETE_DEFAULT_OPTIONS) public AUTOCOMPLETE_OPTIONS: MatAutocompleteDefaultOptions,
-                @Inject(MAT_LABEL_GLOBAL_OPTIONS) @Optional() public LABEL_OPTIONS: LabelOptions,
+                @Inject(MAT_FORM_FIELD_DEFAULT_OPTIONS) @Optional() public FORM_FIELD_OPTIONS : MatFormFieldDefaultOptions,
                 @Inject(MAT_RIPPLE_GLOBAL_OPTIONS) @Optional() public RIPPLE_OPTIONS: RippleGlobalOptions) {
 
         super(layoutService, validationService);

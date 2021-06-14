@@ -1,9 +1,10 @@
 <mat-form-field [appearance]="model.getAdditional('appearance', 'legacy')"
                 [color]="model.getAdditional('color', 'primary')"
-                [floatLabel]="model.getAdditional('floatLabel', LABEL_OPTIONS && LABEL_OPTIONS['float'] || 'auto')"
+                [floatLabel]="model.getAdditional('floatLabel', FORM_FIELD_OPTIONS && FORM_FIELD_OPTIONS['float'] || 'auto')"
                 [formGroup]="group"
                 [hideRequiredMarker]="model.getAdditional('hideRequiredMarker', false)"
-                [ngClass]="getClass('grid', 'control')">
+                [ngClass]="getClass('grid', 'control')"
+                [ngDynamicTooltip]="model.ngDynamicTooltip">
 
     <ng-container *ngIf="model.label" ngProjectAs="mat-label">
 
@@ -15,16 +16,19 @@
 
     <input matInput
            [autofocus]="model.autoFocus"
+           [matTooltip]="model.labelTooltip"
            [formControlName]="model.id"
            [id]="id"
            [max]="model.max"
            [matDatepicker]="matDatepicker"
+           [matDatepickerFilter]="model.dateFilter"
            [min]="model.min"
            [name]="model.name"
            [ngClass]="getClass('element', 'control')"
            [placeholder]="model.placeholder"
            [readonly]="model.readOnly"
            [required]="model.required"
+           [tabindex]="model.tabIndex"
            (blur)="onBlur($event)"
            (dateChange)="onChange($event)"
            (dateInput)="onCustomEvent($event, 'dateInput')"
@@ -47,6 +51,14 @@
                     (opened)="onCustomEvent($event, 'opened')"
                     (yearSelected)="onCustomEvent($event, 'yearSelected')"></mat-datepicker>
 
-    <mat-error *ngFor="let message of errorMessages">{{ message }}</mat-error>
+    <mat-error>
+        <ng-container *ngIf="errorTemplate; else defaultErrorMessagesTemplate">
+            <ng-container *ngTemplateOutlet="errorTemplate; context: { model: model, control: control, errors: control?.errors }"></ng-container>
+        </ng-container>
+
+        <ng-template #defaultErrorMessagesTemplate>
+            <div *ngFor="let message of errorMessages">{{ message }}</div>
+        </ng-template>
+    </mat-error>
 
 </mat-form-field>

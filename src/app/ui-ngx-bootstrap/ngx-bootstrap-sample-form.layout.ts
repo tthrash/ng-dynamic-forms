@@ -1,4 +1,4 @@
-import { DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX } from "@ng-dynamic-forms/core";
+import { DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX } from "@ng-dynamic-forms2/core";
 
 export const NGX_BOOTSTRAP_SAMPLE_FORM_LAYOUT = {
 

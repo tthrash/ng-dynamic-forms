@@ -18,3 +18,7 @@ export function isObject(value: any): value is object {
 export function isString(value: any): value is string {
     return typeof value === "string";
 }
+
+export function isArrayOfType<T>(value: any, type: new () => T): value is T {
+    return Array.isArray(value) && value.every(item => item instanceof type);
+}

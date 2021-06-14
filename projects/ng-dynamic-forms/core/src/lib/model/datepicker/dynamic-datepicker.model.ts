@@ -19,6 +19,7 @@ export interface DynamicDatePickerModelConfig extends DynamicDateControlModelCon
     suffix?: string;
     toggleIcon?: string;
     toggleLabel?: string;
+    dateFilter?: (date: Date) => boolean,
 }
 
 export class DynamicDatePickerModel extends DynamicDateControlModel {
@@ -31,6 +32,7 @@ export class DynamicDatePickerModel extends DynamicDateControlModel {
     @serializable() suffix: string | null;
     @serializable() toggleIcon: string | null;
     @serializable() toggleLabel: string | null;
+    @serializable() dateFilter: (date: Date) => boolean;
 
     @serializable() readonly type: string = DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER;
 
@@ -46,5 +48,21 @@ export class DynamicDatePickerModel extends DynamicDateControlModel {
         this.toggleIcon = isString(config.toggleIcon) ? config.toggleIcon : null;
         this.toggleLabel = isString(config.toggleLabel) ? config.toggleLabel : null;
         this.suffix = config.suffix || null;
+        this.dateFilter = config.dateFilter || null;
+    }
+
+    clone(withState: boolean = false): DynamicDatePickerModel {
+        const config = {...this.config};
+
+        if (withState) {
+            const copyWithState = this.toJSON();
+            for (const key of Object.keys(copyWithState)) {
+                if (typeof config[key] !== "undefined") {
+                    config[key] = copyWithState[key];
+                }
+            }
+        }
+
+        return new DynamicDatePickerModel(this.config, this.layout);
     }
 }
