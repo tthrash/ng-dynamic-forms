@@ -20,7 +20,6 @@ import {
     DYNAMIC_ERROR_MESSAGES_MATCHER,
     DynamicErrorMessagesMatcher
 } from "./dynamic-form-validation-matchers";
-import { isFunction } from "util";
 
 @Injectable({
     providedIn: "root"
@@ -68,7 +67,7 @@ export class DynamicFormValidationService {
                             validatorsToken: ValidatorsToken = this._NG_VALIDATORS): Validator[] {
 
         // check for array of ValidatorFn[]. If so, return the result
-        if (Array.isArray(validatorsConfig) && validatorsConfig.every(item => isFunction(item))) {
+        if (Array.isArray(validatorsConfig) && validatorsConfig.every(item => typeof item === 'function')) {
             return validatorsConfig as Validator[];
         }
 
