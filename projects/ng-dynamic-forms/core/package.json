@@ -1,6 +1,6 @@
 {
   "name": "@ng-dynamic-forms2/core",
-  "version": "12.3.0",
+  "version": "12.4.0",
   "description": "A rapid form development library for Angular",
   "keywords": [
     "angular",
@@ -32,7 +32,7 @@
   "fesm2015": "./fesm2015/core.js",
   "fesm5": "./fesm5/core.js",
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.0"
   },
   "sideEffects": false,
   "private": false
