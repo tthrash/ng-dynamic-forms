@@ -60,6 +60,6 @@ export class DynamicSelectModel<T> extends DynamicOptionControlModel<T> {
 
         newSelectModel.options$ = this.options$;
 
-        return
+        return newSelectModel;
     }
 }
